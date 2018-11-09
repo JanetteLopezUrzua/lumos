@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else if(clickCount == 2){
                 startActivity(new Intent(getApplicationContext(), RecordVideoActivity.class));
                 mainButton.setEnabled(false);
+                mainButton.getBackground().setColorFilter(new LightingColorFilter(0, getResources().getColor(R.color.gray)));
             }
         }
 
