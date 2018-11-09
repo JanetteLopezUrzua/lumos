@@ -50,6 +50,9 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         firebaseAuth = FirebaseAuth.getInstance();
         currentUserId = firebaseAuth.getCurrentUser() ;
 
+        buttonEditContacts.setTransformationMethod(null);
+        buttonDelete.setTransformationMethod(null);
+
         buttonEditContacts.setOnClickListener(this);
         buttonDelete.setOnClickListener(this);
     }
