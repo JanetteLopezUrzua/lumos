@@ -238,7 +238,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 });
         dialog.show();
     }
-
     public static Double getLat(){
 
         return lat;
