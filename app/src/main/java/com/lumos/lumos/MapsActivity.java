@@ -36,8 +36,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     Marker marker;
     private LocationManager locationManager;
     private String provider;
-    public static  double lat = 37.3394444;
-    public  static double lng = -121.8938889;
+    public static double lat;
+    public static double lng;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,8 +83,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         LatLng position = new LatLng(lat, lng);
-        //marker = mMap.addMarker(mo);
-       // marker.setPosition(position);
+        marker = mMap.addMarker(mo);
+        marker.setPosition(position);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 10));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 
@@ -112,8 +113,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if(mMap != null){
             LatLng position = new LatLng(lat, lng);
             mMap.addMarker(new MarkerOptions()
-                    .title("My Current Location")
-                    .position(position));
+                    .position(position)
+                    .title("My Current Location"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
         }
 
@@ -238,13 +239,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         dialog.show();
     }
 
-    /*public static Double getLat(){
+    public static Double getLat(){
 
         return lat;
     }
     public static Double getLng(){
         return lng;
-    }*/
+    }
 }
 
 
