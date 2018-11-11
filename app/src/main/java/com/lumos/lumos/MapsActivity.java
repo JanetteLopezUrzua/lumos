@@ -36,8 +36,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     Marker marker;
     private LocationManager locationManager;
     private String provider;
-    public static double lat;
-    public static double lng;
+    public static  double lat = 37.3394444;
+    public  static double lng = -121.8938889;
 
 
     @Override
