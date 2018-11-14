@@ -128,7 +128,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                             if(task.isSuccessful()) {
                                 //user is successfully registered and logged in
                                 //check if user is already logged in
-
                                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                                 if (!user.isEmailVerified()) {
                                     user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
