@@ -36,12 +36,14 @@
 
         <EditText
             android:id="@+id/EditTextContactName1"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name" />
 
         <EditText
             android:id="@+id/EditTextPhone1"
+            android:maxLength="14"
             android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,12 +63,14 @@
 
         <EditText
             android:id="@+id/EditTextContactName2"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name" />
 
         <EditText
             android:id="@+id/EditTextPhone2"
+            android:maxLength="14"
             android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -86,12 +90,14 @@
 
         <EditText
             android:id="@+id/EditTextContactName3"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name" />
 
         <EditText
             android:id="@+id/EditTextPhone3"
+            android:maxLength="14"
             android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -111,12 +117,14 @@
 
         <EditText
             android:id="@+id/EditTextContactName4"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name" />
 
         <EditText
             android:id="@+id/EditTextPhone4"
+            android:maxLength="14"
             android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -136,12 +144,14 @@
 
         <EditText
             android:id="@+id/EditTextContactName5"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name" />
 
         <EditText
             android:id="@+id/EditTextPhone5"
+            android:maxLength="14"
             android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
