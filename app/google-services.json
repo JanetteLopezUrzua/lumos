@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "549276275840",
+    "firebase_url": "https://lumos-22713.firebaseio.com",
+    "project_id": "lumos-22713",
+    "storage_bucket": "lumos-22713.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549276275840:android:cb5a8da0c5d1ec98",
+        "android_client_info": {
+          "package_name": "com.lumos.lumos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549276275840-rucfdd0s5q9qcumj91au6t1sqdvtmovm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lumos.lumos",
+            "certificate_hash": "c9bfd89b69f8735d27e672950a84f12351cfa4e7"
+          }
+        },
+        {
+          "client_id": "549276275840-mfn7rd5edt06atpnfqp5fkkjp1orbmqk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0yyKfIOzLjWJPa0CXSb2THnhkmWYIn6g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549276275840-mfn7rd5edt06atpnfqp5fkkjp1orbmqk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

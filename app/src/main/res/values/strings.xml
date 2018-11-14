@@ -1,0 +1,34 @@
+<resources>
+    <!-- SignIn/UpActivities strings-->
+    <string name="app_name">LUMOS</string>
+    <string name="enter_message">Enter Message</string>
+    <string name="enter_contact_number">Enter Contact Number</string>
+    <string name="don_t_have_an_account_sign_up_here">Don\'t have an account? Sign Up Here</string>
+    <string name="enter_email_address">Enter email address</string>
+    <string name="enter_your_full_name">Enter your full name</string>
+
+    <!-- MapActivity strings-->
+    <string name="title_activity_maps">Map</string>
+    <string name="normal_map">Normal Map</string>
+    <string name="hybrid_map">Hybrid Map</string>
+    <string name="satelliete_map">Satelliete Map</string>
+    <string name="terrain_map">Terrain Map</string>
+    <string name="none_map">None Map</string>
+
+    <!-- RecordVideoActivity strings-->
+    <string name="record">Record</string>
+    <string name="stop">Stop</string>
+    <string name="description_info">Info</string>
+    <string name="permission_request">This sample needs permission for camera and audio recording.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+
+    <!-- MessageActivity strings-->
+    <string name="permission_not_granted">PERMISSION NOT GRANTED!</string>
+    <string name="enter_phone">Enter a phone number</string>
+    <string name="enter_message_here">Enter message here</string>
+    <string name="send_a_message">Send a message</string>
+    <string name="retry">Retry</string>
+    <string name="sms_disabled">SMS usage disabled</string>
+    <string name="failure_permission">Failure to obtain permission!</string>
+
+</resources>

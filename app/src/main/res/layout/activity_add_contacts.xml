@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddContacts">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:lineSpacingExtra="8sp"
+            android:text="Enter Up To 5 Contacts"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:typeface="normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact 1"
+            android:textColor="@color/contacts"/>
+
+        <EditText
+            android:id="@+id/EditTextContactName1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name" />
+
+        <EditText
+            android:id="@+id/EditTextPhone1"
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number" />
+
+        <Button
+            android:id="@+id/buttonContact1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose From Contacts" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact 2"
+            android:textColor="@color/contacts"/>
+
+        <EditText
+            android:id="@+id/EditTextContactName2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name" />
+
+        <EditText
+            android:id="@+id/EditTextPhone2"
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number" />
+
+        <Button
+            android:id="@+id/buttonContact2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose From Contacts" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact 3"
+            android:textColor="@color/contacts"/>
+
+        <EditText
+            android:id="@+id/EditTextContactName3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name" />
+
+        <EditText
+            android:id="@+id/EditTextPhone3"
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number" />
+
+        <Button
+            android:id="@+id/buttonContact3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose From Contacts" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact 4"
+            android:textColor="@color/contacts"/>
+
+        <EditText
+            android:id="@+id/EditTextContactName4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name" />
+
+        <EditText
+            android:id="@+id/EditTextPhone4"
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number" />
+
+        <Button
+            android:id="@+id/buttonContact4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose From Contacts" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact 5"
+            android:textColor="@color/contacts"/>
+
+        <EditText
+            android:id="@+id/EditTextContactName5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name" />
+
+        <EditText
+            android:id="@+id/EditTextPhone5"
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number" />
+
+        <Button
+            android:id="@+id/buttonContact5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose From Contacts" />
+
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+
+        <Button
+            android:id="@+id/buttonSkip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Skip" />
+
+
+    </LinearLayout>
+</ScrollView>
