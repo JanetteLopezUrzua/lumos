@@ -7,6 +7,8 @@ import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.telephony.PhoneNumberUtils;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import android.text.InputType;
 
 
 public class AddContacts extends AppCompatActivity implements View.OnClickListener{
@@ -110,7 +114,7 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
             int  phoneIndex =cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
             // column index of the contact name
             int  nameIndex =cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
-            phoneNumber = cursor.getString(phoneIndex);
+            phoneNumber = cursor.getString(phoneIndex).trim();
             contactName = cursor.getString(nameIndex);
             // Set the value to the textviews
             name.setText(contactName);
@@ -165,29 +169,72 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         button5.setOnClickListener(this);
     }
 
-    private void saveContacts(){
+    private void saveContacts() {
         String name1Text = name1.getText().toString().trim();
         String phone1Text = phone1.getText().toString().trim();
+            if (TextUtils.isEmpty(name1Text) && TextUtils.isEmpty(phone1Text)){
+                Toast.makeText(this, "Please enter Name for contact 1 ", Toast.LENGTH_LONG).show();
+                return;
+            }
+            if(TextUtils.isEmpty(phone1Text)){
+                Toast.makeText(this, "Please enter Phone Number for contact 1 ", Toast.LENGTH_LONG).show();
+                return;
+            }
 
         String name2Text = name2.getText().toString().trim();
         String phone2Text = phone2.getText().toString().trim();
+        if (TextUtils.isEmpty(name2Text)|| name2Text == name1Text){
+            Toast.makeText(this, "Please enter Name for contact 2", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(TextUtils.isEmpty(phone2Text)){
+            Toast.makeText(this, "Please enter Phone Number for contact 2 ", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         String name3Text = name3.getText().toString().trim();
         String phone3Text = phone3.getText().toString().trim();
+        if (TextUtils.isEmpty(name3Text) || name3Text == name2Text || name3Text == name1Text){
+            Toast.makeText(this, "Please enter contact3 Name ", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(TextUtils.isEmpty(phone3Text)){
+            Toast.makeText(this, "Please enter Phone Number for contact 3", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         String name4Text = name4.getText().toString().trim();
         String phone4Text = phone4.getText().toString().trim();
+        if (TextUtils.isEmpty(name4Text)|| name4Text == name3Text || name4Text == name2Text || name4Text == name1Text){
+            Toast.makeText(this, "Please enter contact4 Name ", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(TextUtils.isEmpty(phone4Text)){
+            Toast.makeText(this, "Please enter Phone Number for contact 4 ", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         String name5Text = name5.getText().toString().trim();
         String phone5Text = phone5.getText().toString().trim();
+        if (TextUtils.isEmpty(name5Text) || name5Text == name4Text || name5Text == name3Text || name5Text == name2Text || name5Text == name1Text){
+            Toast.makeText(this, "Please enter contact5  Name ", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(TextUtils.isEmpty(phone5Text)){
+            Toast.makeText(this, "Please enter Phone Number for contact 5 ", Toast.LENGTH_LONG).show();
+            return;
+        }
 
-        ContactsClass contacts = new ContactsClass(name1Text, phone1Text, name2Text, phone2Text,
-                name3Text, phone3Text, name4Text, phone4Text, name5Text, phone5Text);
 
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-        databaseReference.child(user.getUid()).child("contacts").setValue(contacts);
+            ContactsClass contacts = new ContactsClass(name1Text, phone1Text, name2Text, phone2Text,
+                    name3Text, phone3Text, name4Text, phone4Text, name5Text, phone5Text);
 
-        Toast.makeText(this, "Contacts Saved", Toast.LENGTH_LONG).show();
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+            databaseReference.child(user.getUid()).child("contacts").setValue(contacts);
+
+            Toast.makeText(this, "Contacts Saved", Toast.LENGTH_LONG).show();
+           finish();
+        startActivity(new Intent(this, MainActivity.class));
 
     }
 
@@ -225,11 +272,6 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
 
         if(view == save){
             saveContacts();
-            finish();
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-        }
-
-        if(view == skip){
             finish();
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }

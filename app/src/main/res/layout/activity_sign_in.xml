@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInActivity">
+    tools:context=".SignInActivity"
+    android:background="@drawable/ranabackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,8 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Sign In"
-            android:textAppearance="@android:style/TextAppearance.Large"
-            android:textStyle="bold" />
+            android:textAppearance="@android:style/TextAppearance.Large" />
 
         <EditText
             android:id="@+id/editTextEmail"
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:background="@color/colorPrimary"
+            android:background="@color/contacts"
             android:text="Sign In"
             android:textColor="@android:color/white"
             android:textSize="18sp" />

@@ -3,8 +3,9 @@
     <color name="colorPrimary">#df0606</color>
     <color name="colorPrimaryDark">#0b0202</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="contacts">#FF1111</color>
-    <color name="background">#FFFFFF</color>
+    <color name="contacts2">#FF1111</color>
+    <color name="background">#ffffff</color>
     <color name="orange">#ff9500</color>
     <color name="gray">#898681</color>
+    <color name="contacts">#ffb011</color>
 </resources>
