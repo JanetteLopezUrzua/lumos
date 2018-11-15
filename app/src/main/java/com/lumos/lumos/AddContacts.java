@@ -20,6 +20,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import android.text.InputType;
+
 
 public class AddContacts extends AppCompatActivity implements View.OnClickListener{
 
