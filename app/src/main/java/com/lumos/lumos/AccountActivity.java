@@ -73,8 +73,8 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         AlertDialog.Builder ab = new AlertDialog.Builder(this);
         ab.setMessage("Are you sure you want to delete your account?").setPositiveButton("Yes", dialogClickListener)
                 .setNegativeButton("No", dialogClickListener).show();
-
     }
+
     private void checkPasswordDialog() {
         // Set up the input
         final EditText input = new EditText(this);
@@ -140,9 +140,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         builder.setMessage("Enter your password").setView(input).setPositiveButton("OK", dialogClickListener)
                 .setNegativeButton("Cancel", dialogClickListener).show();
     }
-
-
-
+    
     @Override
     public void onClick(View view) {
         if(view == buttonEditContacts){
