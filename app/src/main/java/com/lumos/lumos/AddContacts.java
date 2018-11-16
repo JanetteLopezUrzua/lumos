@@ -58,7 +58,6 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
     private Button button4;
     private Button button5;
     private Button save;
-    private Button skip;
 
     private Button done1;
     private Button done2;
@@ -88,7 +87,6 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         done5 = findViewById(R.id.buttonDone5);
 
         save = findViewById(R.id.buttonSave);
-        skip = findViewById(R.id.buttonSkip);
 
         done1.setOnClickListener(this);
         done2.setOnClickListener(this);
@@ -97,7 +95,6 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         done5.setOnClickListener(this);
 
         save.setOnClickListener(this);
-        skip.setOnClickListener(this);
     }
 
     public void pickContact(View v)
@@ -517,9 +514,6 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         databaseReference.child(user.getUid()).child("contacts").setValue(contacts);
 
         Toast.makeText(this, "Contacts Saved", Toast.LENGTH_LONG).show();
-        finish();
-        startActivity(new Intent(this, MainActivity.class));
-
     }
 
     @Override
