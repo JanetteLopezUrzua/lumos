@@ -5,23 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    tools:context=".SignUpActivity">
-    <!--android:background="@drawable/background_no_blur_screen"-->
+    tools:context=".SignUpActivity"
+    android:background="@drawable/background_no_blur_screen_50">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
+
+    <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Sign Up"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="LUMOS"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/background"
+            android:shadowColor="#000000"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="2.0"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:fontFamily="fantasy"/>
 
         <EditText
             android:id="@+id/editTextEmail"
@@ -29,7 +42,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:hint="Enter email address"
-            android:inputType="textEmailAddress" />
+            android:textColorHint="#99ffffff"
+            android:inputType="textEmailAddress"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/icon_identity"/>
 
         <EditText
             android:id="@+id/editTextPassword"
@@ -37,7 +53,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:hint="Enter password"
-            android:inputType="textPassword" />
+            android:textColorHint="#99ffffff"
+            android:inputType="textPassword"
+            android:drawableStart="@drawable/icon_lock"
+            android:drawablePadding="10dp" />
 
         <Button
             android:id="@+id/buttonSignUp"
@@ -47,8 +66,9 @@
             android:background="@color/colorPrimary"
             android:text="Sign Up"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
+
+    </LinearLayout>
 
         <TextView
             android:id="@+id/textViewSignIn"
@@ -56,8 +76,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:text="Already have an account? Sign In"
-            android:textAlignment="center" />
-
-    </LinearLayout>
+            android:textAlignment="center"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/background"
+            android:fontFamily="fantasy"/>
 
 </RelativeLayout>

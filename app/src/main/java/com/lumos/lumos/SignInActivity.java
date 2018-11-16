@@ -50,6 +50,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         signUp = findViewById(R.id.textViewSignUp);
         progressDialog = new ProgressDialog(this);
 
+        buttonSignIn.setTransformationMethod(null);
+
         buttonSignIn.setOnClickListener(this);
         signUp.setOnClickListener(this);
 

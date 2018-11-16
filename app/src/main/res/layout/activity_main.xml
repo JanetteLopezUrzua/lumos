@@ -35,6 +35,9 @@
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="PANIC"
+            android:textColor="@color/background"
+            android:textSize="50dp"
             android:background="@drawable/main_button" />
 
         <Button
@@ -43,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="135dp"
+            android:layout_marginBottom="50dp"
             android:elevation="0dp"
             android:text="Deactivate" />
 

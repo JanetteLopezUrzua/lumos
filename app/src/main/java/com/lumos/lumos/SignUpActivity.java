@@ -75,6 +75,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
 
+            buttonSignUp.setTransformationMethod(null);
+
             buttonSignUp.setOnClickListener(this);
             signIn.setOnClickListener(this);
 

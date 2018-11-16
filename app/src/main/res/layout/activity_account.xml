@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccountActivity">
+    tools:context=".AccountActivity"
+    android:background="@drawable/background_blur_screen">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imageBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:src="@drawable/background_blur_screen"
-        android:contentDescription="@string/todo" />
+        android:contentDescription="" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,12 +28,11 @@
 
         <TextView
             android:id="@+id/textViewAccountSettings"
-            android:layout_width="365dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textAlignment="center"
             android:layout_marginTop="100dp"
-            android:layout_marginBottom="240dp"
+            android:layout_marginBottom="100dp"
             android:fontFamily="fantasy"
             android:text="@string/account_settings"
             android:textAppearance="@android:style/TextAppearance.Large"
@@ -52,7 +52,8 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/button" />
 
         <Button
