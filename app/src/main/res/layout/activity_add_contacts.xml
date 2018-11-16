@@ -31,8 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contact 1"
-            android:textColor="@color/contact"/>
+            android:text="Contact 1" />
 
         <EditText
             android:id="@+id/EditTextContactName1"
@@ -96,7 +95,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contact 3" />
+            android:text="Contact 3"
+            />
 
         <EditText
             android:id="@+id/EditTextContactName3"
@@ -199,7 +199,7 @@
             android:id="@+id/buttonSkip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Skip" />
+            android:text="Skip All" />
 
 
     </LinearLayout>
