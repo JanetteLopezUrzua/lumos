@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.PhoneNumberFormattingTextWatcher;
@@ -17,8 +18,11 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import android.text.InputType;
 
@@ -30,6 +34,7 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
     //public static final int  MAX_PICK_CONTACT= 1;
     //private static final String TAG = "MyActivity";
     private FirebaseAuth firebaseAuth;
+    private FirebaseUser user;
     private DatabaseReference databaseReference;
 
     private EditText name;
@@ -55,6 +60,12 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
     private Button save;
     private Button skip;
 
+    private Button done1;
+    private Button done2;
+    private Button done3;
+    private Button done4;
+    private Button done5;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +81,20 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         contact4();
         contact5();
 
+        done1 = findViewById(R.id.buttonDone1);
+        done2 = findViewById(R.id.buttonDone2);
+        done3 = findViewById(R.id.buttonDone3);
+        done4 = findViewById(R.id.buttonDone4);
+        done5 = findViewById(R.id.buttonDone5);
+
         save = findViewById(R.id.buttonSave);
         skip = findViewById(R.id.buttonSkip);
+
+        done1.setOnClickListener(this);
+        done2.setOnClickListener(this);
+        done3.setOnClickListener(this);
+        done4.setOnClickListener(this);
+        done5.setOnClickListener(this);
 
         save.setOnClickListener(this);
         skip.setOnClickListener(this);
@@ -89,7 +112,7 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         // check whether the result is ok
         if (requestCode == RESULT_PICK_CONTACT) {
             if (resultCode == RESULT_OK) {
-                    contactPicked(data);
+                contactPicked(data);
             }
         } else {
             Log.e("AddContacts", "Failed to pick contact");
@@ -126,38 +149,183 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
 
     private void contact1(){
         name1 = findViewById(R.id.EditTextContactName1);
+        name1.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
         phone1 = (EditText)findViewById(R.id.EditTextPhone1);
         phone1.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
         button1 = findViewById(R.id.buttonContact1);
-
         button1.setOnClickListener(this);
+
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        databaseReference.child(user.getUid()).child("contacts").child("name1").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    String name = dataSnapshot.getValue(String.class);
+                    name1.setText(name);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        databaseReference.child(user.getUid()).child("contacts").child("phone1").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    String phone = dataSnapshot.getValue(String.class);
+                    phone1.setText(phone);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void contact2(){
         name2 = findViewById(R.id.EditTextContactName2);
         phone2 = (EditText)findViewById(R.id.EditTextPhone2);
-        phone2.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
-        button2 = findViewById(R.id.buttonContact2);
 
+        button2 = findViewById(R.id.buttonContact2);
+        done2 = findViewById(R.id.buttonDone2);
         button2.setOnClickListener(this);
+        done2.setOnClickListener(this);
+
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        databaseReference.child(user.getUid()).child("contacts").child("name2").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    String name = dataSnapshot.getValue(String.class);
+                    name2.setText(name);
+                }
+                else{
+                    name2.setEnabled(false);
+                    button2.setEnabled(false);
+                    done2.setEnabled(false);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        databaseReference.child(user.getUid()).child("contacts").child("phone2").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    String phone = dataSnapshot.getValue(String.class);
+                    phone2.setText(phone);
+                }
+                else{
+                    phone2.setEnabled(false);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 
     private void contact3() {
         name3 = findViewById(R.id.EditTextContactName3);
         phone3 = (EditText)findViewById(R.id.EditTextPhone3);
-        phone3.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
-        button3 = findViewById(R.id.buttonContact3);
 
+        button3 = findViewById(R.id.buttonContact3);
+        done3 = findViewById(R.id.buttonDone3);
         button3.setOnClickListener(this);
+        done3.setOnClickListener(this);
+
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        databaseReference.child(user.getUid()).child("contacts").child("name3").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    String name = dataSnapshot.getValue(String.class);
+                    name3.setText(name);
+                }
+                else{
+                    name3.setEnabled(false);
+                    button3.setEnabled(false);
+                    done3.setEnabled(false);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        databaseReference.child(user.getUid()).child("contacts").child("phone3").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    String phone = dataSnapshot.getValue(String.class);
+                    phone3.setText(phone);
+                }
+                else{
+                    phone3.setEnabled(false);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void contact4(){
         name4 = findViewById(R.id.EditTextContactName4);
         phone4 = (EditText)findViewById(R.id.EditTextPhone4);
-        phone4.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+        //phone4.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
         button4 = findViewById(R.id.buttonContact4);
-
+        done4 = findViewById(R.id.buttonDone4);
         button4.setOnClickListener(this);
+
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        databaseReference.child(user.getUid()).child("contacts").child("name4").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    String name = dataSnapshot.getValue(String.class);
+                    name4.setText(name);
+                }
+                else{
+                    name4.setEnabled(false);
+                    button4.setEnabled(false);
+                    done4.setEnabled(false);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        databaseReference.child(user.getUid()).child("contacts").child("phone4").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    String phone = dataSnapshot.getValue(String.class);
+                    phone4.setText(phone);
+                }
+                else{
+                    phone4.setEnabled(false);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     private void contact5(){
@@ -165,21 +333,137 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         phone5 = (EditText)findViewById(R.id.EditTextPhone5);
         phone5.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
         button5 = findViewById(R.id.buttonContact5);
-
+        done5 = findViewById(R.id.buttonDone5);
         button5.setOnClickListener(this);
+        done5.setOnClickListener(this);
+
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        databaseReference.child(user.getUid()).child("contacts").child("name5").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    String name = dataSnapshot.getValue(String.class);
+                    name5.setText(name);
+                }
+                else{
+                    name5.setEnabled(false);
+                    button5.setEnabled(false);
+                    done5.setEnabled(false);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        databaseReference.child(user.getUid()).child("contacts").child("phone5").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    String phone = dataSnapshot.getValue(String.class);
+                    phone5.setText(phone);
+                }
+                else{
+                    phone5.setEnabled(false);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    // Done does checking for each field
+    //
+    private void funcDone1(){
+        if(!name1.getText().toString().trim().isEmpty() && !phone1.getText().toString().trim().isEmpty()){
+            if(!name2.isEnabled()) name2.setEnabled(true);
+            name2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
+            if(!phone2.isEnabled()) phone2.setEnabled(true);
+            phone2.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+            if(!button2.isEnabled()) button2.setEnabled(true);
+            if(!done2.isEnabled()) done2.setEnabled(true);
+        }
+        else{
+            Toast.makeText(this, "Please complete contact 1", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void funcDone2(){
+        if(!name2.getText().toString().trim().isEmpty() && !phone2.getText().toString().trim().isEmpty() &&
+                !name1.getText().toString().trim().isEmpty() && !phone1.getText().toString().trim().isEmpty()){
+            if(!name3.isEnabled()) name3.setEnabled(true);
+            name3.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
+            if(!phone3.isEnabled()) phone3.setEnabled(true);
+            phone3.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+            if(!button3.isEnabled()) button3.setEnabled(true);
+            if(!done3.isEnabled()) done3.setEnabled(true);
+        }
+        else{
+            Toast.makeText(this, "Please complete contact 2 and all contact above", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void funcDone3(){
+        if(!name3.getText().toString().trim().isEmpty() && !phone3.getText().toString().trim().isEmpty()
+                && !name2.getText().toString().trim().isEmpty() && !phone2.getText().toString().trim().isEmpty()
+                && !name1.getText().toString().trim().isEmpty() && !phone1.getText().toString().trim().isEmpty()){
+            if(!name4.isEnabled()) name4.setEnabled(true);
+            name4.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
+            if(!phone4.isEnabled()) phone4.setEnabled(true);
+            phone4.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+            if(!button4.isEnabled()) button4.setEnabled(true);
+            if(!done4.isEnabled()) done4.setEnabled(true);
+        }
+        else{
+            Toast.makeText(this, "Please complete contact 3 and all contact above", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void funcDone4(){
+        if(!name4.getText().toString().trim().isEmpty() && !phone4.getText().toString().trim().isEmpty()
+                && !name3.getText().toString().trim().isEmpty() && !phone3.getText().toString().trim().isEmpty()
+                && !name2.getText().toString().trim().isEmpty() && !phone2.getText().toString().trim().isEmpty()
+                && !name1.getText().toString().trim().isEmpty() && !phone1.getText().toString().trim().isEmpty()){
+            if(!name5.isEnabled()) name5.setEnabled(true);
+            name5.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
+            if(!phone5.isEnabled()) phone5.setEnabled(true);
+            phone5.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+            if(!button5.isEnabled()) button5.setEnabled(true);
+            if(done5.isEnabled() == false) done5.setEnabled(true);
+        }
+        else{
+            Toast.makeText(this, "Please complete contact 4 and all contact above", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void funcDone5(){
+        if(name5.getText().toString().trim().isEmpty() && phone5.getText().toString().trim().isEmpty()
+                && name4.getText().toString().trim().isEmpty() && phone4.getText().toString().trim().isEmpty()
+                && name3.getText().toString().trim().isEmpty() && phone3.getText().toString().trim().isEmpty()
+                && name2.getText().toString().trim().isEmpty() && phone2.getText().toString().trim().isEmpty()
+                && name1.getText().toString().trim().isEmpty() && phone1.getText().toString().trim().isEmpty()){
+            Toast.makeText(this, "Please complete contact 5 and all contact above", Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(this, "You're ready to save", Toast.LENGTH_LONG).show();
+        }
+
     }
 
     private void saveContacts() {
         String name1Text = name1.getText().toString().trim();
         String phone1Text = phone1.getText().toString().trim();
-            if (TextUtils.isEmpty(name1Text) && TextUtils.isEmpty(phone1Text)){
-                Toast.makeText(this, "Please enter Name for contact 1 ", Toast.LENGTH_LONG).show();
-                return;
-            }
-            if(TextUtils.isEmpty(phone1Text)){
-                Toast.makeText(this, "Please enter Phone Number for contact 1 ", Toast.LENGTH_LONG).show();
-                return;
-            }
+        if (TextUtils.isEmpty(name1Text) && TextUtils.isEmpty(phone1Text)){
+            Toast.makeText(this, "Please enter Name for contact 1 ", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(TextUtils.isEmpty(phone1Text)){
+            Toast.makeText(this, "Please enter Phone Number for contact 1 ", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         String name2Text = name2.getText().toString().trim();
         String phone2Text = phone2.getText().toString().trim();
@@ -226,14 +510,14 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         }
 
 
-            ContactsClass contacts = new ContactsClass(name1Text, phone1Text, name2Text, phone2Text,
-                    name3Text, phone3Text, name4Text, phone4Text, name5Text, phone5Text);
+        ContactsClass contacts = new ContactsClass(name1Text, phone1Text, name2Text, phone2Text,
+                name3Text, phone3Text, name4Text, phone4Text, name5Text, phone5Text);
 
-            FirebaseUser user = firebaseAuth.getCurrentUser();
-            databaseReference.child(user.getUid()).child("contacts").setValue(contacts);
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        databaseReference.child(user.getUid()).child("contacts").setValue(contacts);
 
-            Toast.makeText(this, "Contacts Saved", Toast.LENGTH_LONG).show();
-           finish();
+        Toast.makeText(this, "Contacts Saved", Toast.LENGTH_LONG).show();
+        finish();
         startActivity(new Intent(this, MainActivity.class));
 
     }
@@ -246,10 +530,18 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
             phone = phone1;
         }
 
+        if(view == done1){
+            funcDone1();
+        }
+
         if(view == button2){
             pickContact(button2);
             name = name2;
             phone = phone2;
+        }
+
+        if(view == done2){
+            funcDone2();
         }
 
         if(view == button3){
@@ -258,10 +550,18 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
             phone = phone3;
         }
 
+        if(view == done3){
+            funcDone3();
+        }
+
         if(view == button4){
             pickContact(button4);
             name = name4;
             phone = phone4;
+        }
+
+        if(view == done4){
+            funcDone4();
         }
 
         if(view == button5){
@@ -270,9 +570,12 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
             phone = phone5;
         }
 
-        if(view == save) {
-                saveContacts();
+        if(view == done5){
+            funcDone5();
+        }
 
+        if(view == save) {
+            saveContacts();
         }
 
         if(view == skip){
