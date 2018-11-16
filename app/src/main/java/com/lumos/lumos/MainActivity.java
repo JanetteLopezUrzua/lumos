@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         //buttonLogOut.setEnabled(true);
                                         //settings.setEnabled(true);
                                         //mainButton.getBackground().setColorFilter(new LightingColorFilter(0, getResources().getColor(R.color.colorPrimary)));
+
                                         // Include map sharing/message sending stopping part here
                                         recreate();
                                     }
