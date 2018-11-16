@@ -31,8 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contact 1"
-            android:textColor="@color/contacts"/>
+            android:text="Contact 1" />
 
         <EditText
             android:id="@+id/EditTextContactName1"
@@ -55,11 +54,16 @@
             android:layout_height="wrap_content"
             android:text="Choose From Contacts" />
 
+        <Button
+            android:id="@+id/buttonDone1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Done" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contact 2"
-            android:textColor="@color/contacts"/>
+            android:text="Contact 2" />
 
         <EditText
             android:id="@+id/EditTextContactName2"
@@ -82,11 +86,17 @@
             android:layout_height="wrap_content"
             android:text="Choose From Contacts" />
 
+        <Button
+            android:id="@+id/buttonDone2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Done" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contact 3"
-            android:textColor="@color/contacts"/>
+            />
 
         <EditText
             android:id="@+id/EditTextContactName3"
@@ -109,11 +119,16 @@
             android:layout_height="wrap_content"
             android:text="Choose From Contacts" />
 
+        <Button
+            android:id="@+id/buttonDone3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Done" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contact 4"
-            android:textColor="@color/contacts"/>
+            android:text="Contact 4" />
 
         <EditText
             android:id="@+id/EditTextContactName4"
@@ -136,11 +151,16 @@
             android:layout_height="wrap_content"
             android:text="Choose From Contacts" />
 
+        <Button
+            android:id="@+id/buttonDone4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Done" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contact 5"
-            android:textColor="@color/contacts"/>
+            android:text="Contact 5" />
 
         <EditText
             android:id="@+id/EditTextContactName5"
@@ -164,16 +184,22 @@
             android:text="Choose From Contacts" />
 
         <Button
+            android:id="@+id/buttonDone5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Done" />
+
+        <Button
             android:id="@+id/buttonSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save" />
+            android:text="Save All" />
 
         <Button
             android:id="@+id/buttonSkip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Skip" />
+            android:text="Skip All" />
 
 
     </LinearLayout>
