@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInActivity"
-    android:background="@drawable/ranabackground">
+    tools:context=".SignInActivity">
+    <!--android:background="@drawable/ranabackground">-->
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -109,7 +109,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             } else {
                 // If the password is not empty
                 if (!isPasswordValid(passwordText)) {
-                    Toast.makeText(getApplicationContext(), "Password must be between 6 and 40 characters long. Password must contain at least one digit, one upper case character and one lower case character!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Password must be between 6 and 40 " +
+                            "characters long. Password must contain at least one digit, one upper case" +
+                            " character and one lower case character!", Toast.LENGTH_LONG).show();
                     return;
                 }
             }
