@@ -21,11 +21,12 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import android.view.Menu;
+import android.view.MenuItem;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button buttonLogOut;
     private Button mainButton;
-    private Button settings;
     private Button deactivate;
 
     private int clickCount = 0;
@@ -40,19 +41,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        buttonLogOut = findViewById(R.id.buttonLogOut);
         mainButton = findViewById(R.id.mainButton);
-        settings = findViewById(R.id.buttonSettings);
         deactivate = findViewById(R.id.buttonDeactivate);
         firebaseAuth = FirebaseAuth.getInstance();
         currentUserId = firebaseAuth.getCurrentUser() ;
-        buttonLogOut.setOnClickListener(this);
         mainButton.setOnClickListener(this);
-        settings.setOnClickListener(this);
         deactivate.setOnClickListener(this);
         deactivate.setVisibility(View.INVISIBLE);
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.popup, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item)
+    {
+       int id =item.getItemId();
+       switch(id)
+       {
+           case R.id.settings:
+               startActivity(new Intent(getApplicationContext(), AccountActivity.class));
+               break;
+           case R.id.logout:
+               finish();
+               firebaseAuth.signOut();
+               startActivity(new Intent(getApplicationContext(), SignInActivity.class));
+               break;
+       }
+        return true;
+
+    }
+
 
     private void checkPasswordDialog() {
         // Set up the input
@@ -73,11 +97,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(MainActivity.this, "Alarm deactivated", Toast.LENGTH_SHORT).show();
-                                        deactivate.setVisibility(View.INVISIBLE);
-                                        buttonLogOut.setEnabled(true);
-                                        settings.setEnabled(true);
-                                        mainButton.getBackground().setColorFilter(new LightingColorFilter(0, getResources().getColor(R.color.colorPrimary)));
+                                        //deactivate.setVisibility(View.INVISIBLE);
+                                        //buttonLogOut.setEnabled(true);
+                                        //settings.setEnabled(true);
+                                        //mainButton.getBackground().setColorFilter(new LightingColorFilter(0, getResources().getColor(R.color.colorPrimary)));
+
                                         // Include map sharing/message sending stopping part here
+                                        recreate();
                                     }
                                 }
                             });
@@ -110,35 +136,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if (view == buttonLogOut) {
-            finish();
-            firebaseAuth.signOut();
-            startActivity(new Intent(getApplicationContext(), SignInActivity.class));
-        }
 
         if (view == mainButton) {
             clickCount++;
 
             if(clickCount == 1){
                 startActivity(new Intent(getApplicationContext(), MessageActivity.class));
-                buttonLogOut.setEnabled(false);
-                settings.setEnabled(false);
-                mainButton.getBackground().setColorFilter(new LightingColorFilter(0, getResources().getColor(R.color.orange)));
+                mainButton.getBackground().setColorFilter(new LightingColorFilter(0, getResources().getColor(R.color.colorPrimary)));
                 deactivate.setVisibility(View.VISIBLE);
 
 
             } else if(clickCount == 2){
                 startActivity(new Intent(getApplicationContext(), RecordVideoActivity.class));
                 mainButton.setEnabled(false);
+                mainButton.getBackground().setColorFilter(new LightingColorFilter(0, getResources().getColor(R.color.gray)));
             }
         }
 
-        if (view == settings) {
-            startActivity(new Intent(getApplicationContext(), AccountActivity.class));
-        }
 
         if (view == deactivate) {
             checkPasswordDialog();
         }
     }
+
+
 }

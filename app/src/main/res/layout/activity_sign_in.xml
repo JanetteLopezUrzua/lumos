@@ -4,21 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInActivity">
+    tools:context=".SignInActivity"
+    android:background="@drawable/background_rana_50">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Sign In"
+            android:text="LUMOS"
             android:textAppearance="@android:style/TextAppearance.Large"
-            android:textStyle="bold" />
+            android:textColor="@color/background"
+            android:shadowColor="#000000"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="2.0"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:fontFamily="fantasy" />
 
         <EditText
             android:id="@+id/editTextEmail"
@@ -26,7 +39,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:hint="Enter email address"
-            android:inputType="textEmailAddress" />
+            android:textColorHint="#99ffffff"
+            android:drawablePadding="10dp"
+            android:inputType="textEmailAddress"
+            android:drawableStart="@drawable/icon_identity"/>
 
         <EditText
             android:id="@+id/editTextPassword"
@@ -34,6 +50,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:hint="Enter password"
+            android:textColorHint="#99ffffff"
+            android:drawableStart="@drawable/icon_lock"
+            android:drawablePadding="10dp"
             android:inputType="textPassword" />
 
         <Button
@@ -41,19 +60,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:background="@color/colorPrimary"
+            android:background="@color/contacts"
             android:text="Sign In"
             android:textColor="@android:color/white"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            />
 
-        <TextView
+    </LinearLayout>
+
+    <TextView
             android:id="@+id/textViewSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:text="Don't have an account? Sign Up Here"
-            android:textAlignment="center" />
-
-    </LinearLayout>
+            android:textAlignment="center"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/background"
+            android:fontFamily="fantasy"/>
 
 </RelativeLayout>

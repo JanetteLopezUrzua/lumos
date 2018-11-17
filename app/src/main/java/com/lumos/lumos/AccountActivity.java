@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.InputType;
+import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -31,12 +31,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import android.text.InputType;
+
 public class AccountActivity extends AppCompatActivity implements View.OnClickListener{
     private static final String TAG = "Settings";
     private Button buttonEditContacts;
     private Button buttonDelete;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser currentUserId;
+    private DatabaseReference databaseReference;
     private String password;
     private AuthCredential credential;
 
@@ -44,11 +47,14 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
-
         buttonEditContacts = findViewById(R.id.buttonEditContacts);
         buttonDelete = findViewById(R.id.buttonDelete);
         firebaseAuth = FirebaseAuth.getInstance();
         currentUserId = firebaseAuth.getCurrentUser() ;
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        buttonEditContacts.setTransformationMethod(null);
+        buttonDelete.setTransformationMethod(null);
 
         buttonEditContacts.setOnClickListener(this);
         buttonDelete.setOnClickListener(this);
@@ -140,8 +146,6 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         builder.setMessage("Enter your password").setView(input).setPositiveButton("OK", dialogClickListener)
                 .setNegativeButton("Cancel", dialogClickListener).show();
     }
-
-
 
     @Override
     public void onClick(View view) {
