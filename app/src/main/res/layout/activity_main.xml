@@ -6,49 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="8dp"
+        android:background="@drawable/imaan4"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-        <Button
-            android:id="@+id/buttonLogOut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_alignParentEnd="true"
-            android:text="Log Out" />
-        <Button
-            android:id="@+id/buttonSettings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Settings" />
 
         <Button
             android:id="@+id/mainButton"
-            android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PANIC"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="141dp"
+            android:background="@drawable/main_button"
             android:textColor="@color/background"
-            android:textSize="50dp"
-            android:background="@drawable/main_button" />
+            android:textSize="50dp" />
 
         <Button
             android:id="@+id/buttonDeactivate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="50dp"
             android:elevation="0dp"
-            android:text="Deactivate" />
+            android:text="Deactivate"
+            android:textSize="16sp"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/button" />
 
     </RelativeLayout>
 
