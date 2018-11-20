@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddContacts">
+    tools:context=".AddContacts"
+    android:background="@drawable/imaan1">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,27 +19,37 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/textViewAccountSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:lineSpacingExtra="8sp"
-            android:text="Enter Up To 5 Contacts"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="24sp"
-            android:typeface="normal" />
-
+            android:layout_marginBottom="33dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="fantasy"
+            android:shadowColor="#000000"
+            android:shadowDx="0.0"
+            android:shadowDy="0.0"
+            android:shadowRadius="2.0"
+            android:text="@string/enter_contacts"
+            android:textAppearance="@android:style/TextAppearance.Small"
+            android:textColor="@color/background"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+        
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contact 1" />
+            android:text="Contact 1"
+            android:textColor="@color/background"/>
 
         <EditText
             android:id="@+id/EditTextContactName1"
             android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name" />
+            android:hint="Name"
+            android:textColor="@color/background"
+            android:textColorHint="#99ffffff"/>
 
         <EditText
             android:id="@+id/EditTextPhone1"
@@ -46,7 +57,9 @@
             android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number" />
+            android:hint="Phone Number"
+            android:textColor="@color/background"
+            android:textColorHint="#99ffffff"/>
 
         <Button
             android:id="@+id/buttonContact1"
@@ -63,14 +76,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contact 2" />
+            android:text="Contact 2"
+            android:textColor="@color/background"/>
 
         <EditText
             android:id="@+id/EditTextContactName2"
             android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name" />
+            android:hint="Name"
+            android:textColor="@color/background"
+            android:textColorHint="#99ffffff"/>
 
         <EditText
             android:id="@+id/EditTextPhone2"
@@ -78,7 +94,9 @@
             android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number" />
+            android:hint="Phone Number"
+            android:textColor="@color/background"
+            android:textColorHint="#99ffffff"/>
 
         <Button
             android:id="@+id/buttonContact2"
@@ -96,14 +114,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contact 3"
-            />
+            android:textColor="@color/background"/>
 
         <EditText
             android:id="@+id/EditTextContactName3"
             android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name" />
+            android:hint="Name"
+            android:textColor="@color/background"
+            android:textColorHint="#99ffffff"/>
 
         <EditText
             android:id="@+id/EditTextPhone3"
@@ -111,7 +131,9 @@
             android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number" />
+            android:hint="Phone Number"
+            android:textColor="@color/background"
+            android:textColorHint="#99ffffff"/>
 
         <Button
             android:id="@+id/buttonContact3"
@@ -128,14 +150,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contact 4" />
+            android:text="Contact 4"
+            android:textColor="@color/background"/>
 
         <EditText
             android:id="@+id/EditTextContactName4"
             android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name" />
+            android:hint="Name"
+            android:textColor="@color/background"
+            android:textColorHint="#99ffffff"/>
 
         <EditText
             android:id="@+id/EditTextPhone4"
@@ -143,7 +168,9 @@
             android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number" />
+            android:hint="Phone Number"
+            android:textColor="@color/background"
+            android:textColorHint="#99ffffff"/>
 
         <Button
             android:id="@+id/buttonContact4"
@@ -160,14 +187,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contact 5" />
+            android:text="Contact 5"
+            android:textColor="@color/background"/>
 
         <EditText
             android:id="@+id/EditTextContactName5"
             android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name" />
+            android:hint="Name"
+            android:textColor="@color/background"
+            android:textColorHint="#99ffffff"/>
 
         <EditText
             android:id="@+id/EditTextPhone5"
@@ -175,7 +205,9 @@
             android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number" />
+            android:hint="Phone Number"
+            android:textColor="@color/background"
+            android:textColorHint="#99ffffff"/>
 
         <Button
             android:id="@+id/buttonContact5"

@@ -24,6 +24,9 @@ import com.google.firebase.auth.FirebaseUser;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button mainButton;
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseUser currentUserId;
     private String password;
     private AuthCredential credential;
+    private Timer timer = new Timer();
+
 
 
     @Override
@@ -96,6 +101,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             currentUserId.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
+                                        timer.cancel();  // Terminates this timer, discarding any currently scheduled tasks.
+                                        timer.purge();
                                         Toast.makeText(MainActivity.this, "Alarm deactivated", Toast.LENGTH_SHORT).show();
                                         recreate();
                                     }
@@ -135,7 +142,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             clickCount++;
 
             if(clickCount == 1){
-                startActivity(new Intent(getApplicationContext(), MessageActivity.class));
+                TimerTask timerTask = new TimerTask() {
+                    @Override
+                    public void run() {
+                        startActivity(new Intent(getApplicationContext(), MessageActivity.class));
+                    }
+                };
+
+                timer.schedule(timerTask, 0,60000);
+
                 mainButton.getBackground().setColorFilter(new LightingColorFilter(0, getResources().getColor(R.color.colorPrimary)));
                 deactivate.setVisibility(View.VISIBLE);
 
