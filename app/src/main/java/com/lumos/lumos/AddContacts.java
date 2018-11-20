@@ -88,7 +88,7 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         done5 = findViewById(R.id.buttonDone5);
 
         save = findViewById(R.id.buttonSave);
-        //skip = findViewById(R.id.buttonSkip);
+        skip = findViewById(R.id.buttonSkip);
 
         done1.setOnClickListener(this);
         done2.setOnClickListener(this);
