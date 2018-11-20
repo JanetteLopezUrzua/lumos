@@ -193,7 +193,13 @@
             android:id="@+id/buttonSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save" />
+            android:text="Save All" />
+
+        <Button
+            android:id="@+id/buttonSkip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Skip All" />
 
 
     </LinearLayout>

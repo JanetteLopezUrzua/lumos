@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccountActivity"
-    android:background="@drawable/background">
-
-    <!--<ImageView
-        android:id="@+id/imageBackground"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/background_blur_screen"
-        android:contentDescription="" />-->
+    tools:context=".AccountActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,38 +22,50 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="100dp"
-            android:fontFamily="fantasy"
-            android:text="@string/account_settings"
+            android:text="Account Settings"
             android:textAppearance="@android:style/TextAppearance.Large"
-            android:textColor="@color/background"
-            android:shadowColor="#000000"
-            android:shadowDx="0.0"
-            android:shadowDy="0.0"
-            android:shadowRadius="2.0"
-            android:textSize="35sp"
             android:textStyle="bold" />
-
+        <TextView
+            android:id="@+id/textViewUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Name"
+            android:textAppearance="@android:style/TextAppearance.Medium" />
+        <EditText
+            android:id="@+id/EditTextName"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your full name" />
+        <TextView
+            android:id="@+id/textViewUserPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Phone Number"
+            android:textAppearance="@android:style/TextAppearance.Medium" />
+        <EditText
+            android:id="@+id/EditTextPhone"
+            android:maxLength="14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your phone number"
+            android:inputType="phone"/>
+        <Button
+            android:id="@+id/buttonSaveNewNameAndPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
         <Button
             android:id="@+id/buttonEditContacts"
-            android:text="@string/edit_contacts"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="30dp"/>
-
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Contacts" />
         <Button
-            android:id="@+id/buttonDelete"
-            android:text="@string/delete_account"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="15dp"/>
+        android:id="@+id/buttonDelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Account" />
     </LinearLayout>
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +30,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import android.text.InputType;
+
 public class AccountActivity extends AppCompatActivity implements View.OnClickListener{
     private static final String TAG = "Settings";
     private EditText userName;
@@ -48,8 +51,10 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_account);
 
         userName = findViewById(R.id.EditTextName);
-        //userPhone = findViewById(R.id.EditTextPhone);
-        //buttonSaveNewNameAndPhone = findViewById(R.id.buttonSaveNewNameAndPhone);
+        userName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS); // format user name
+        userPhone = findViewById(R.id.EditTextPhone);
+        userPhone.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+        buttonSaveNewNameAndPhone = findViewById(R.id.buttonSaveNewNameAndPhone);
         buttonEditContacts = findViewById(R.id.buttonEditContacts);
         buttonDelete = findViewById(R.id.buttonDelete);
         firebaseAuth = FirebaseAuth.getInstance();
@@ -61,8 +66,11 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
             public void onDataChange(DataSnapshot dataSnapshot) {
                 oldName = dataSnapshot.child("name").getValue(String.class);
                 oldPhone = dataSnapshot.child("phone").getValue(String.class);
-                userName.setHint(oldName);
-                userPhone.setHint(oldPhone);
+                if(dataSnapshot.exists()){
+                    userName.setText(oldName);
+                    userPhone.setText(oldPhone);
+                }
+
             }
 
             @Override
