@@ -48,8 +48,8 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_account);
 
         userName = findViewById(R.id.EditTextName);
-        userPhone = findViewById(R.id.EditTextPhone);
-        buttonSaveNewNameAndPhone = findViewById(R.id.buttonSaveNewNameAndPhone);
+        //userPhone = findViewById(R.id.EditTextPhone);
+        //buttonSaveNewNameAndPhone = findViewById(R.id.buttonSaveNewNameAndPhone);
         buttonEditContacts = findViewById(R.id.buttonEditContacts);
         buttonDelete = findViewById(R.id.buttonDelete);
         firebaseAuth = FirebaseAuth.getInstance();

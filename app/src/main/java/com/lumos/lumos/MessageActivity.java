@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +23,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MessageActivity extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 1;
     private static final String TAG = "MessageActivity";
@@ -31,10 +35,42 @@ public class MessageActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private String cname;
     private String cPhone;
+    private Button deactivate;
+
+    /*private final long startTime = 60 * 1000; //it is 60 second
+    private final long interval = 1 * 1000; // 1 second interval
+
+    CountDownTimer cDownTimer = new MyCountDownTimer(startTime, interval);
+
+
+    class MyCountDownTimer extends CountDownTimer {
+        public MyCountDownTimer(long startTime, long interval) {
+            super(startTime, interval);
+        }
+
+        @Override
+        public void onFinish() {
+            //send sms
+            String messageToSend = "Hello " + cname + "\nI'm sharing my location with you \n"
+                    + "http://maps.google.com/maps?z=12&t=m&q=loc:" + Double.toString(MapsActivity.getLat()) + "+" + Double.toString(MapsActivity.getLng());
+            String number = cPhone;
+
+            SmsManager.getDefault().sendTextMessage(number, null, messageToSend, null, null);
+
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+            long time = millisUntilFinished / 1000;
+            Log.v("timer: ", ""+time);
+        }
+    }*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        deactivate = findViewById(R.id.buttonDeactivate);
         checkForSmsPermission();
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -43,24 +79,35 @@ public class MessageActivity extends AppCompatActivity {
         startActivity(new Intent(this, MapsActivity.class));
 
         databaseReference.child(currentUserId.getUid()).addValueEventListener(new ValueEventListener() {
-          @Override
-          public void onDataChange(DataSnapshot dataSnapshot) {
-              int i;
-              for(i = 1; i <= 5; i++){
-                  cname = dataSnapshot.child("contacts/name" + Integer.toString(i)).getValue(String.class);
-                  cPhone = dataSnapshot.child("contacts/phone" + Integer.toString(i)).getValue(String.class);
 
-                  if(!cPhone.equals("")) {
-                      String messageToSend = "Hello " + cname + "\nI'm sharing my location with you \n"
-                              + "http://maps.google.com/maps?z=12&t=m&q=loc:" + MapsActivity.lat + "+" + MapsActivity.lng;
-                      String number = cPhone;
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                TimerTask timerTask = new TimerTask() {
+                    @Override
+                    public void run() {
+                        if (dataSnapshot.hasChild("contacts")) {
+                            int i;
+                            for (i = 1; i <= 5; i++) {
+                                cname = dataSnapshot.child("contacts/name" + Integer.toString(i)).getValue(String.class);
+                                cPhone = dataSnapshot.child("contacts/phone" + Integer.toString(i)).getValue(String.class);
 
-                      SmsManager.getDefault().sendTextMessage(number, null, messageToSend, null,null);
-                  }
-              }
+                                if (!cPhone.equals("") && !deactivate.isEnabled()) {
+                                    String messageToSend = "Hello " + cname + "\nI'm sharing my location with you \n"
+                                            + "http://maps.google.com/maps?z=12&t=m&q=loc:" + Double.toString(MapsActivity.getLat()) + "+" + Double.toString(MapsActivity.getLng());
+                                    String number = cPhone;
 
-              Toast.makeText(getApplicationContext(),"Message Sent.",Toast.LENGTH_SHORT).show();
-          }
+                                    SmsManager.getDefault().sendTextMessage(number, null, messageToSend, null, null);
+
+                                }
+                            }
+                        }
+                    }
+                };
+                Timer timer = new Timer();
+                timer.schedule(timerTask, 2000,2000);
+
+                Toast.makeText(MessageActivity.this,"Message Sent",Toast.LENGTH_SHORT).show();
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 

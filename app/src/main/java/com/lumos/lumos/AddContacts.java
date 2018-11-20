@@ -71,7 +71,7 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         contact5();
 
         save = findViewById(R.id.buttonSave);
-        skip = findViewById(R.id.buttonSkip);
+        //skip = findViewById(R.id.buttonSkip);
 
         save.setOnClickListener(this);
         skip.setOnClickListener(this);
