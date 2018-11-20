@@ -8,6 +8,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- <uses-permission android:name="android.permission.RECORD_AUDIO" /> -->
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="com.lumos.lumos.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="com.lumos.lumos.permission" />
+    <uses-permission android:name="com.google.android.prividers.gsf.permission.READ_GSERVICES" />
 
     <uses-feature
         android:name="android.hardware.camera2"
@@ -19,10 +22,9 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -33,14 +35,12 @@
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".SignUpActivity"
             android:theme="@style/SignTheme"/>

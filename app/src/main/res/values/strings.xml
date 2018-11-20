@@ -30,6 +30,8 @@
     <string name="retry">Retry</string>
     <string name="sms_disabled">SMS usage disabled</string>
     <string name="failure_permission">Failure to obtain permission!</string>
+    <string name="permissionlocationaccess">Please allow this app to access location!</string>
+    <string name="title_activity_my_timer_task">MyTimerTask</string>
 
     <!-- AccountActivity strings-->
     <string name="delete_account">Delete Account</string>
