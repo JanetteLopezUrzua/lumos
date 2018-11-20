@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AccountActivity"
-    android:background="@drawable/background_blur_screen">
+    android:background="@drawable/imaan1">
 
     <!--<ImageView
         android:id="@+id/imageBackground"
@@ -31,17 +31,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="90dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="fantasy"
-            android:text="@string/account_settings"
-            android:textAppearance="@android:style/TextAppearance.Large"
-            android:textColor="@color/background"
             android:shadowColor="#000000"
             android:shadowDx="0.0"
             android:shadowDy="0.0"
             android:shadowRadius="2.0"
-            android:textSize="35sp"
+            android:text="@string/account_settings"
+            android:textAppearance="@android:style/TextAppearance.Small"
+            android:textColor="@color/background"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
         <Button
@@ -52,19 +52,19 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="170dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/button" />
 
         <Button
-        android:id="@+id/buttonDelete"
-            android:text="@string/delete_account"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
+            android:id="@+id/buttonDelete"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="15dp"
-            android:background="@drawable/button"  />
+            android:layout_margin="10dp"
+            android:background="@drawable/button"
+            android:text="@string/delete_account"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
     </LinearLayout>
 </RelativeLayout>

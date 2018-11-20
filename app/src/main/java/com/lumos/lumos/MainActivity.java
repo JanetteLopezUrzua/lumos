@@ -97,12 +97,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(MainActivity.this, "Alarm deactivated", Toast.LENGTH_SHORT).show();
-                                        //deactivate.setVisibility(View.INVISIBLE);
-                                        //buttonLogOut.setEnabled(true);
-                                        //settings.setEnabled(true);
-                                        //mainButton.getBackground().setColorFilter(new LightingColorFilter(0, getResources().getColor(R.color.colorPrimary)));
-
-                                        // Include map sharing/message sending stopping part here
                                         recreate();
                                     }
                                 }
