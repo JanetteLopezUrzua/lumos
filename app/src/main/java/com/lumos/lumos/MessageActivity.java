@@ -93,7 +93,8 @@ public class MessageActivity extends AppCompatActivity {
 
                                 if (!cPhone.equals("") && !deactivate.isEnabled()) {
                                     String messageToSend = "Hello " + cname + "\nI'm sharing my location with you \n"
-                                            + "http://maps.google.com/maps?z=12&t=m&q=loc:" + Double.toString(MapsActivity.getLat()) + "+" + Double.toString(MapsActivity.getLng());
+                                            + "http://maps.google.com/maps?z=12&t=m&q=loc:" + Double.toString(MapsActivity.getLat()) + "+"
+                                            + Double.toString(MapsActivity.getLng()) + "\n Message sent trough LUMOS app.";
                                     String number = cPhone;
 
                                     SmsManager.getDefault().sendTextMessage(number, null, messageToSend, null, null);
