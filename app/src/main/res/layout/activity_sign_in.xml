@@ -5,66 +5,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignInActivity"
-    android:background="@drawable/background_rana_50">
+    android:background="@drawable/imaan1">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:orientation="vertical"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="LUMOS"
-            android:textAppearance="@android:style/TextAppearance.Large"
-            android:textColor="@color/background"
+            android:layout_marginBottom="220dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="fantasy"
             android:shadowColor="#000000"
             android:shadowDx="0.0"
             android:shadowDy="0.0"
             android:shadowRadius="2.0"
+            android:text="LUMOS"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textColor="@color/background"
             android:textSize="35sp"
-            android:textStyle="bold"
-            android:fontFamily="fantasy" />
+            android:textStyle="bold" />
+
 
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:hint="Enter email address"
-            android:textColorHint="#99ffffff"
+            android:layout_margin="5dp"
             android:drawablePadding="10dp"
+            android:drawableStart="@drawable/icon_identity"
+            android:hint="Enter email address"
             android:inputType="textEmailAddress"
-            android:drawableStart="@drawable/icon_identity"/>
+            android:textColor="@color/background"
+            android:textColorHint="#99ffffff" />
 
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:hint="Enter password"
-            android:textColorHint="#99ffffff"
-            android:drawableStart="@drawable/icon_lock"
+            android:layout_margin="5dp"
             android:drawablePadding="10dp"
-            android:inputType="textPassword" />
+            android:drawableStart="@drawable/icon_lock"
+            android:hint="Enter password"
+            android:inputType="textPassword"
+            android:textColor="@color/background"
+            android:textColorHint="#99ffffff" />
 
         <Button
             android:id="@+id/buttonSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:background="@color/contacts"
+            android:layout_margin="10dp"
+            android:background="@drawable/button"
             android:text="Sign In"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
+        />
 
     </LinearLayout>
 
@@ -72,8 +78,8 @@
             android:id="@+id/textViewSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:text="Don't have an account? Sign Up Here"
+            android:layout_margin="10dp"
+            android:text="No account? Sign Up here!"
             android:textAlignment="center"
             android:layout_alignParentBottom="true"
             android:textColor="@color/background"

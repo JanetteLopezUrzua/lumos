@@ -43,10 +43,11 @@
 
         </activity>
         <activity android:name=".SignUpActivity"
-                  android:theme="@style/AppAnim"/>
+            android:theme="@style/SignTheme"/>
+
 
         <activity android:name=".SignInActivity"
-                  android:theme="@style/AppAnim"/>
+            android:theme="@style/SignTheme"/>
 
         <activity android:name=".AddContacts"
                     android:theme="@style/AppAnim"/>
