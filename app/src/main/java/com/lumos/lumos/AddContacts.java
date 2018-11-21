@@ -25,6 +25,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import android.text.InputType;
+import android.text.InputFilter;
+import android.text.Spanned;
 
 
 public class AddContacts extends AppCompatActivity implements View.OnClickListener{
@@ -145,6 +147,22 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
 
     private void contact1(){
         name1 = findViewById(R.id.EditTextContactName1);
+        name1.setFilters(new InputFilter[] {
+                new InputFilter() {
+                    @Override
+                    public CharSequence filter(CharSequence cs, int start,
+                                               int end, Spanned spanned, int dStart, int dEnd) {
+                        // TODO Auto-generated method stub
+                        if(cs.equals("")){ // for backspace
+                            return cs;
+                        }
+                        if(cs.toString().matches("[a-zA-Z ]+")){
+                            return cs;
+                        }
+                        return "";
+                    }
+                }
+        });
         name1.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
         phone1 = findViewById(R.id.EditTextPhone1);
         phone1.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
@@ -432,6 +450,22 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
     private void funcDone1(){
         if(!name1.getText().toString().trim().isEmpty() && !phone1.getText().toString().trim().isEmpty()){
             if(!name2.isEnabled()) name2.setEnabled(true);
+            name2.setFilters(new InputFilter[] {
+                    new InputFilter() {
+                        @Override
+                        public CharSequence filter(CharSequence cs, int start,
+                                                   int end, Spanned spanned, int dStart, int dEnd) {
+                            // TODO Auto-generated method stub
+                            if(cs.equals("")){ // for backspace
+                                return cs;
+                            }
+                            if(cs.toString().matches("[a-zA-Z ]+")){
+                                return cs;
+                            }
+                            return "";
+                        }
+                    }
+            });
             name2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
             if(!phone2.isEnabled()) phone2.setEnabled(true);
             phone2.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
@@ -447,6 +481,22 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         if(!name2.getText().toString().trim().isEmpty() && !phone2.getText().toString().trim().isEmpty() &&
                 !name1.getText().toString().trim().isEmpty() && !phone1.getText().toString().trim().isEmpty()){
             if(!name3.isEnabled()) name3.setEnabled(true);
+            name3.setFilters(new InputFilter[] {
+                    new InputFilter() {
+                        @Override
+                        public CharSequence filter(CharSequence cs, int start,
+                                                   int end, Spanned spanned, int dStart, int dEnd) {
+                            // TODO Auto-generated method stub
+                            if(cs.equals("")){ // for backspace
+                                return cs;
+                            }
+                            if(cs.toString().matches("[a-zA-Z ]+")){
+                                return cs;
+                            }
+                            return "";
+                        }
+                    }
+            });
             name3.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
             if(!phone3.isEnabled()) phone3.setEnabled(true);
             phone3.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
@@ -463,6 +513,22 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
                 && !name2.getText().toString().trim().isEmpty() && !phone2.getText().toString().trim().isEmpty()
                 && !name1.getText().toString().trim().isEmpty() && !phone1.getText().toString().trim().isEmpty()){
             if(!name4.isEnabled()) name4.setEnabled(true);
+            name4.setFilters(new InputFilter[] {
+                    new InputFilter() {
+                        @Override
+                        public CharSequence filter(CharSequence cs, int start,
+                                                   int end, Spanned spanned, int dStart, int dEnd) {
+                            // TODO Auto-generated method stub
+                            if(cs.equals("")){ // for backspace
+                                return cs;
+                            }
+                            if(cs.toString().matches("[a-zA-Z ]+")){
+                                return cs;
+                            }
+                            return "";
+                        }
+                    }
+            });
             name4.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
             if(!phone4.isEnabled()) phone4.setEnabled(true);
             phone4.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
@@ -480,6 +546,22 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
                 && !name2.getText().toString().trim().isEmpty() && !phone2.getText().toString().trim().isEmpty()
                 && !name1.getText().toString().trim().isEmpty() && !phone1.getText().toString().trim().isEmpty()){
             if(!name5.isEnabled()) name5.setEnabled(true);
+            name5.setFilters(new InputFilter[] {
+                    new InputFilter() {
+                        @Override
+                        public CharSequence filter(CharSequence cs, int start,
+                                                   int end, Spanned spanned, int dStart, int dEnd) {
+                            // TODO Auto-generated method stub
+                            if(cs.equals("")){ // for backspace
+                                return cs;
+                            }
+                            if(cs.toString().matches("[a-zA-Z ]+")){
+                                return cs;
+                            }
+                            return "";
+                        }
+                    }
+            });
             name5.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
             if(!phone5.isEnabled()) phone5.setEnabled(true);
             phone5.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
