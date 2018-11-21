@@ -23,8 +23,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MessageActivity extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 1;
@@ -36,35 +34,6 @@ public class MessageActivity extends AppCompatActivity {
     private String cname;
     private String cPhone;
     private Button deactivate;
-
-    /*private final long startTime = 60 * 1000; //it is 60 second
-    private final long interval = 1 * 1000; // 1 second interval
-
-    CountDownTimer cDownTimer = new MyCountDownTimer(startTime, interval);
-
-
-    class MyCountDownTimer extends CountDownTimer {
-        public MyCountDownTimer(long startTime, long interval) {
-            super(startTime, interval);
-        }
-
-        @Override
-        public void onFinish() {
-            //send sms
-            String messageToSend = "Hello " + cname + "\nI'm sharing my location with you \n"
-                    + "http://maps.google.com/maps?z=12&t=m&q=loc:" + Double.toString(MapsActivity.getLat()) + "+" + Double.toString(MapsActivity.getLng());
-            String number = cPhone;
-
-            SmsManager.getDefault().sendTextMessage(number, null, messageToSend, null, null);
-
-        }
-
-        @Override
-        public void onTick(long millisUntilFinished) {
-            long time = millisUntilFinished / 1000;
-            Log.v("timer: ", ""+time);
-        }
-    }*/
 
 
     @Override
@@ -82,9 +51,6 @@ public class MessageActivity extends AppCompatActivity {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                TimerTask timerTask = new TimerTask() {
-                    @Override
-                    public void run() {
                         if (dataSnapshot.hasChild("contacts")) {
                             int i;
                             for (i = 1; i <= 5; i++) {
@@ -101,12 +67,9 @@ public class MessageActivity extends AppCompatActivity {
                                 }
                             }
                         }
-                    }
-                };
-                Timer timer = new Timer();
-                timer.schedule(timerTask, 2000,2000);
 
                 Toast.makeText(MessageActivity.this,"Message Sent",Toast.LENGTH_SHORT).show();
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

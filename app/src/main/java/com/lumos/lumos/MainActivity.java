@@ -24,6 +24,9 @@ import com.google.firebase.auth.FirebaseUser;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.TimerTask;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button mainButton;
@@ -34,7 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseUser currentUserId;
     private String password;
     private AuthCredential credential;
-
+    private Timer timer = new Timer();
+    private TimerTask timerTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,18 +145,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             clickCount++;
 
             if(clickCount == 1){
-                startActivity(new Intent(getApplicationContext(), MessageActivity.class));
-                mainButton.getBackground().setColorFilter(new LightingColorFilter(0, getResources().getColor(R.color.colorPrimary)));
-                deactivate.setVisibility(View.VISIBLE);
+                    timerTask = new TimerTask() {
+                        @Override
+                        public void run() {
+                            startActivity(new Intent(getApplicationContext(), MessageActivity.class));
+                        }
+                    };
 
+                    timer.schedule(timerTask, 0,60000);
+
+                    mainButton.getBackground().setColorFilter(new LightingColorFilter(0, getResources().getColor(R.color.colorPrimary)));
+                    deactivate.setVisibility(View.VISIBLE);
 
             } else if(clickCount == 2){
+                timer.cancel();  // Terminates this timer, discarding any currently scheduled tasks.
+                timer.purge();
+
+                startActivity(new Intent(getApplicationContext(), RecordVideoActivity.class));
+                mainButton.setEnabled(false);
+                mainButton.getBackground().setColorFilter(new LightingColorFilter(0, getResources().getColor(R.color.gray)));
                 startActivity(new Intent(getApplicationContext(), RecordVideoActivity.class));
                 mainButton.setEnabled(false);
                 mainButton.getBackground().setColorFilter(new LightingColorFilter(0, getResources().getColor(R.color.gray)));
             }
         }
 
+      /*  if(view == RecordVideoActivity.stopRec){
+            timer.schedule(timerTask, 0,60000);
+        }*/
 
         if (view == deactivate) {
             checkPasswordDialog();
