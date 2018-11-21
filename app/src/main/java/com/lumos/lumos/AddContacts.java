@@ -508,7 +508,7 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
     private void saveContacts() {
         //TODO
         // Save at least 1 contact
-        // Letters restriction
+        // Letters restriction - not possible, this bug is weird
         // Format number from contacts
         //
         String name1Text = name1.getText().toString().trim();
@@ -566,7 +566,6 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
 //            return;
 //        }
 
-
         ContactsClass contacts = new ContactsClass(name1Text, phone1Text, name2Text, phone2Text,
                 name3Text, phone3Text, name4Text, phone4Text, name5Text, phone5Text);
 
@@ -574,6 +573,8 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         databaseReference.child(user.getUid()).child("contacts").setValue(contacts);
 
         Toast.makeText(this, "Contacts Saved", Toast.LENGTH_LONG).show();
+
+
     }
 
     @Override
@@ -629,9 +630,17 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         }
 
         if(view == save) {
-            saveContacts();
-            finish();
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            String name1Text = name1.getText().toString().trim();
+            String phone1Text = phone1.getText().toString().trim();
+            if(TextUtils.isEmpty(name1Text) || TextUtils.isEmpty(phone1Text)){
+                Toast.makeText(this, "Enter at least one contact!", Toast.LENGTH_LONG).show();
+                return;
+            }
+            else{
+                saveContacts();
+                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
         }
     }
 
