@@ -44,7 +44,6 @@
 
         <EditText
             android:id="@+id/EditTextContactName1"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name"
@@ -81,7 +80,6 @@
 
         <EditText
             android:id="@+id/EditTextContactName2"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name"
@@ -118,7 +116,6 @@
 
         <EditText
             android:id="@+id/EditTextContactName3"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name"
@@ -155,7 +152,6 @@
 
         <EditText
             android:id="@+id/EditTextContactName4"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name"
@@ -192,7 +188,6 @@
 
         <EditText
             android:id="@+id/EditTextContactName5"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name"
