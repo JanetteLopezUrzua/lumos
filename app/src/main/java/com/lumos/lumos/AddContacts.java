@@ -34,7 +34,6 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
     //public static final int  MAX_PICK_CONTACT= 1;
     //private static final String TAG = "MyActivity";
     private FirebaseAuth firebaseAuth;
-    private FirebaseUser user;
     private DatabaseReference databaseReference;
 
     private EditText name;
@@ -109,7 +108,7 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         // check whether the result is ok
         if (requestCode == RESULT_PICK_CONTACT) {
             if (resultCode == RESULT_OK) {
-                    contactPicked(data);
+                contactPicked(data);
             }
         } else {
             Log.e("AddContacts", "Failed to pick contact");
@@ -134,7 +133,7 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
             int  phoneIndex =cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
             // column index of the contact name
             int  nameIndex =cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
-            phoneNumber = cursor.getString(phoneIndex).trim();
+            phoneNumber = cursor.getString(phoneIndex).trim().replace("+1", "");
             contactName = cursor.getString(nameIndex);
             // Set the value to the textviews
             name.setText(contactName);
@@ -198,11 +197,19 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
                 if(dataSnapshot.exists()){
                     String name = dataSnapshot.getValue(String.class);
                     name2.setText(name);
+                    if(name.equals("")){
+                        name2.setEnabled(false);
+                        button2.setEnabled(false);
+                        done2.setEnabled(false);
+                        phone2.setEnabled(false);
+                    }
                 }
                 else{
                     name2.setEnabled(false);
                     button2.setEnabled(false);
                     done2.setEnabled(false);
+                    phone2.setEnabled(false);
+
                 }
             }
             @Override
@@ -215,8 +222,11 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    String phone = dataSnapshot.getValue(String.class);
-                    phone2.setText(phone);
+                    if(phone2.equals("")) phone2.setEnabled(false);
+                    else{
+                        String phone = dataSnapshot.getValue(String.class);
+                        phone2.setText(phone);
+                    }
                 }
                 else{
                     phone2.setEnabled(false);
@@ -244,15 +254,29 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         databaseReference.child(user.getUid()).child("contacts").child("name3").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                // modified part here
+                //
                 if(dataSnapshot.exists()){
                     String name = dataSnapshot.getValue(String.class);
                     name3.setText(name);
+                    // if the data exists but in form of an empty string ""
+                    //
+                    if(name.equals("")){
+                        name3.setEnabled(false);
+                        button3.setEnabled(false);
+                        done3.setEnabled(false);
+                        phone3.setEnabled(false);
+                    }
                 }
-                else{
+                else{ // data does not exist
                     name3.setEnabled(false);
                     button3.setEnabled(false);
                     done3.setEnabled(false);
+                    phone3.setEnabled(false);
+
                 }
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -264,8 +288,11 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    String phone = dataSnapshot.getValue(String.class);
-                    phone3.setText(phone);
+                    if(phone3.equals("")) phone3.setEnabled(false);
+                    else{
+                        String phone = dataSnapshot.getValue(String.class);
+                        phone3.setText(phone);
+                    }
                 }
                 else{
                     phone3.setEnabled(false);
@@ -290,14 +317,25 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
         databaseReference.child(user.getUid()).child("contacts").child("name4").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 if(dataSnapshot.exists()){
                     String name = dataSnapshot.getValue(String.class);
                     name4.setText(name);
+                    // if the data exists but in form of an empty string ""
+                    //
+                    if(name.equals("")){
+                        name4.setEnabled(false);
+                        button4.setEnabled(false);
+                        done4.setEnabled(false);
+                        phone4.setEnabled(false);
+                    }
                 }
-                else{
+                else{ // data does not exist
                     name4.setEnabled(false);
                     button4.setEnabled(false);
                     done4.setEnabled(false);
+                    phone4.setEnabled(false);
+
                 }
             }
             @Override
@@ -310,8 +348,11 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    String phone = dataSnapshot.getValue(String.class);
-                    phone4.setText(phone);
+                    if(phone4.equals("")) phone4.setEnabled(false);
+                    else{
+                        String phone = dataSnapshot.getValue(String.class);
+                        phone4.setText(phone);
+                    }
                 }
                 else{
                     phone4.setEnabled(false);
@@ -341,12 +382,23 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
                 if(dataSnapshot.exists()){
                     String name = dataSnapshot.getValue(String.class);
                     name5.setText(name);
+                    // if the data exists but in form of an empty string ""
+                    //
+                    if(name.equals("")){
+                        name5.setEnabled(false);
+                        button5.setEnabled(false);
+                        done5.setEnabled(false);
+                        phone5.setEnabled(false);
+                    }
                 }
-                else{
+                else{ // data does not exist
                     name5.setEnabled(false);
                     button5.setEnabled(false);
                     done5.setEnabled(false);
+                    phone5.setEnabled(false);
+
                 }
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -358,8 +410,11 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    String phone = dataSnapshot.getValue(String.class);
-                    phone5.setText(phone);
+                    if(phone5.equals("")) phone5.setEnabled(false);
+                    else{
+                        String phone = dataSnapshot.getValue(String.class);
+                        phone5.setText(phone);
+                    }
                 }
                 else{
                     phone5.setEnabled(false);
@@ -384,7 +439,7 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
             if(!done2.isEnabled()) done2.setEnabled(true);
         }
         else{
-            Toast.makeText(this, "Please complete contact 1", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Enter contact 1", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -399,7 +454,7 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
             if(!done3.isEnabled()) done3.setEnabled(true);
         }
         else{
-            Toast.makeText(this, "Please complete contact 2 and all contact above", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Enter contact 2 and all contact above", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -451,60 +506,65 @@ public class AddContacts extends AppCompatActivity implements View.OnClickListen
     }
 
     private void saveContacts() {
+        //TODO
+        // Save at least 1 contact
+        // Letters restriction
+        // Format number from contacts
+        //
         String name1Text = name1.getText().toString().trim();
         String phone1Text = phone1.getText().toString().trim();
-        if (TextUtils.isEmpty(name1Text) && TextUtils.isEmpty(phone1Text)){
-            Toast.makeText(this, "Please enter Name for contact 1 ", Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(TextUtils.isEmpty(phone1Text)){
-            Toast.makeText(this, "Please enter Phone Number for contact 1 ", Toast.LENGTH_LONG).show();
-            return;
-        }
+//        if (TextUtils.isEmpty(name1Text) && TextUtils.isEmpty(phone1Text)){
+//            Toast.makeText(this, "Please enter Name for contact 1 ", Toast.LENGTH_LONG).show();
+//            return;
+//        }
+//        if(TextUtils.isEmpty(phone1Text)){
+//            Toast.makeText(this, "Please enter Phone Number for contact 1 ", Toast.LENGTH_LONG).show();
+//            return;
+//        }
 
         String name2Text = name2.getText().toString().trim();
         String phone2Text = phone2.getText().toString().trim();
-        if (TextUtils.isEmpty(name2Text)|| name2Text == name1Text){
-            Toast.makeText(this, "Please enter Name for contact 2", Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(TextUtils.isEmpty(phone2Text)){
-            Toast.makeText(this, "Please enter Phone Number for contact 2 ", Toast.LENGTH_LONG).show();
-            return;
-        }
+//        if (TextUtils.isEmpty(name2Text)|| name2Text == name1Text){
+//            Toast.makeText(this, "Please enter Name for contact 2", Toast.LENGTH_LONG).show();
+//            return;
+//        }
+//        if(TextUtils.isEmpty(phone2Text)){
+//            Toast.makeText(this, "Please enter Phone Number for contact 2 ", Toast.LENGTH_LONG).show();
+//            return;
+//        }
 
         String name3Text = name3.getText().toString().trim();
         String phone3Text = phone3.getText().toString().trim();
-        if (TextUtils.isEmpty(name3Text) || name3Text == name2Text || name3Text == name1Text){
-            Toast.makeText(this, "Please enter contact3 Name ", Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(TextUtils.isEmpty(phone3Text)){
-            Toast.makeText(this, "Please enter Phone Number for contact 3", Toast.LENGTH_LONG).show();
-            return;
-        }
+//        if (TextUtils.isEmpty(name3Text) || name3Text == name2Text || name3Text == name1Text){
+//            Toast.makeText(this, "Please enter contact3 Name ", Toast.LENGTH_LONG).show();
+//            return;
+//        }
+//        if(TextUtils.isEmpty(phone3Text)){
+//            Toast.makeText(this, "Please enter Phone Number for contact 3", Toast.LENGTH_LONG).show();
+//            return;
+//        }
 
         String name4Text = name4.getText().toString().trim();
         String phone4Text = phone4.getText().toString().trim();
-        if (TextUtils.isEmpty(name4Text)|| name4Text == name3Text || name4Text == name2Text || name4Text == name1Text){
-            Toast.makeText(this, "Please enter contact4 Name ", Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(TextUtils.isEmpty(phone4Text)){
-            Toast.makeText(this, "Please enter Phone Number for contact 4 ", Toast.LENGTH_LONG).show();
-            return;
-        }
+//        if (TextUtils.isEmpty(name4Text)|| name4Text == name3Text || name4Text == name2Text || name4Text == name1Text){
+//            Toast.makeText(this, "Please enter contact4 Name ", Toast.LENGTH_LONG).show();
+//            return;
+//        }
+//        if(TextUtils.isEmpty(phone4Text)){
+//            Toast.makeText(this, "Please enter Phone Number for contact 4 ", Toast.LENGTH_LONG).show();
+//            return;
+//        }
 
         String name5Text = name5.getText().toString().trim();
         String phone5Text = phone5.getText().toString().trim();
-        if (TextUtils.isEmpty(name5Text) || name5Text == name4Text || name5Text == name3Text || name5Text == name2Text || name5Text == name1Text){
-            Toast.makeText(this, "Please enter contact5  Name ", Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(TextUtils.isEmpty(phone5Text)){
-            Toast.makeText(this, "Please enter Phone Number for contact 5 ", Toast.LENGTH_LONG).show();
-            return;
-        }
+//        if (TextUtils.isEmpty(name5Text) || name5Text == name4Text || name5Text == name3Text || name5Text == name2Text || name5Text == name1Text){
+//            Toast.makeText(this, "Please enter contact5  Name ", Toast.LENGTH_LONG).show();
+//            return;
+//        }
+//        if(TextUtils.isEmpty(phone5Text)){
+//            Toast.makeText(this, "Please enter Phone Number for contact 5 ", Toast.LENGTH_LONG).show();
+//            return;
+//        }
 
 
         ContactsClass contacts = new ContactsClass(name1Text, phone1Text, name2Text, phone2Text,
