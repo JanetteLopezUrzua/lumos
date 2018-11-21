@@ -38,8 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String password;
     private AuthCredential credential;
     private Timer timer = new Timer();
-
-
+    private TimerTask timerTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             clickCount++;
 
             if(clickCount == 1){
-                TimerTask timerTask = new TimerTask() {
+                timerTask = new TimerTask() {
                     @Override
                     public void run() {
                         startActivity(new Intent(getApplicationContext(), MessageActivity.class));
@@ -156,10 +155,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             } else if(clickCount == 2){
+                timer.cancel();  // Terminates this timer, discarding any currently scheduled tasks.
+                timer.purge();
+
                 startActivity(new Intent(getApplicationContext(), RecordVideoActivity.class));
                 mainButton.setEnabled(false);
                 mainButton.getBackground().setColorFilter(new LightingColorFilter(0, getResources().getColor(R.color.gray)));
             }
+        }
+
+        if(view == RecordVideoActivity.stopRec){
+            timer.schedule(timerTask, 0,60000);
         }
 
 

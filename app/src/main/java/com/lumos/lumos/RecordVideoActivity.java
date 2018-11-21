@@ -72,7 +72,7 @@ public class RecordVideoActivity extends AppCompatActivity {
 
     private TextureView mTextureView;
 
-    private Button stopRec;
+    public static Button stopRec;
 
     private CameraDevice mCameraDevice;
 
