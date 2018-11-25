@@ -4,8 +4,8 @@ Janette Lopez Urzua | Rana Shamoun | Imaan Tariq | Su Tun | Le Dao
 ### Overview
 LUMOS is an android application that a person can use to quickly send their location through messages every minute to up to 5 contacts when they are not feeling safe by clicking only one button (turn on the alarm). The application also includes the option of video recording once before stopping the alarm.
 
-### Code Structure
-#####
+### Code Structure   
+<img src="app/screenshots/codeStructure.JPG" width="200" height="500">
 
 ### Need
 ##### 1. Android Phone (Developer Options must be turned ON)
