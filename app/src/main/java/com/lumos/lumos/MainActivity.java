@@ -164,11 +164,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-        if(view == RecordVideoActivity.stopRec){
-            timer.schedule(timerTask, 0,60000);
-        }
-
-
         if (view == deactivate) {
             checkPasswordDialog();
         }
