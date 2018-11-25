@@ -52,7 +52,6 @@
         <activity android:name=".AddContacts"
                     android:theme="@style/AppAnim"/>
 
-        <activity android:name=".Phone_Call_Activity" />
         <activity
             android:name=".MapsActivity"
             android:theme="@android:style/Theme.NoDisplay"
