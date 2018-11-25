@@ -165,13 +165,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (view == RecordVideoActivity.stopRec){
-            timerTask = new TimerTask() {
-                @Override
-                public void run() {
-                    startActivity(new Intent(getApplicationContext(), MessageActivity.class));
-                }
-            };
-
+            timer = new Timer();
             timer.schedule(timerTask, 0,60000);
         }
 
