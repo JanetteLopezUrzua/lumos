@@ -155,18 +155,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             } else if(clickCount == 2){
-                timer.cancel();  // Terminates this timer, discarding any currently scheduled tasks.
-                timer.purge();
+                //timer.cancel();  // Terminates this timer, discarding any currently scheduled tasks.
+                //timer.purge();
 
                 startActivity(new Intent(getApplicationContext(), RecordVideoActivity.class));
                 mainButton.setEnabled(false);
                 mainButton.getBackground().setColorFilter(new LightingColorFilter(0, getResources().getColor(R.color.gray)));
             }
-        }
-
-        if (view == RecordVideoActivity.stopRec){
-            timer = new Timer();
-            timer.schedule(timerTask, 0,60000);
         }
 
         if (view == deactivate) {
