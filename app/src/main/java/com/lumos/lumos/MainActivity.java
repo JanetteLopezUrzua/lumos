@@ -164,10 +164,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
+        if (view == RecordVideoActivity.stopRec){
+            timerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(getApplicationContext(), MessageActivity.class));
+                }
+            };
+
+            timer.schedule(timerTask, 0,60000);
+        }
+
         if (view == deactivate) {
             checkPasswordDialog();
         }
     }
-
 
 }
