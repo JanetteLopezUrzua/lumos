@@ -28,3 +28,4 @@ Janette Lopez Urzua | Rana Shamoun | Imaan Tariq | Su Tun | Le Dao
 ##### 11. This should install and open the LUMOS application on your phone.
 &nbsp;
 ### Screenshots
+![splash_screen](../screenshots/Screenshot_20181125-022417_LUMOS.jpg?raw=true "Splash Screen")
