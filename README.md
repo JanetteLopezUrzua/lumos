@@ -9,9 +9,11 @@ LUMOS is an android application that a person can use to quickly send their loca
 
 ### Need
 ##### 1. Android Phone (Developer Options must be turned ON)
-##### 2. Laptop
-##### 3. Android Studio
-##### 4. USB cable to connect phone to laptop
+##### 2. Android SDK 26
+##### 3. Android Build Tools v7:26.1.0
+##### 4. Laptop
+##### 5. Android Studio
+##### 6. USB cable to connect phone to laptop
 
 ### Get Code
 ##### 1. Go to this link: https://github.com/SuPyaeTun/lumos
@@ -89,3 +91,6 @@ Pop Up Dialog to Deactivate Alarm (stops sending messages every minute)
 Main Screen (After Alarm is deactivated)
 &nbsp;     
 <img src="app/screenshots/Screenshot_20181125-022821_LUMOS.jpg" width="200" height="350">
+
+### Support
+Use Stack Overflow to post and get answer to any questions
